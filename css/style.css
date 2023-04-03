@@ -83,6 +83,7 @@ img{
     letter-spacing: 0.03em;
     align-items: center;
     margin-right: 332px;
+
 }
 
 .header-logo {
@@ -101,7 +102,10 @@ img{
 
 .header-list{
     display: flex;
+    position: relative;
 }
+
+
 
 .list-item {
     margin-right: 40px;
@@ -113,9 +117,22 @@ img{
 
 .list-item>.link:hover, .list-item>.link:focus{
     color: var(--color-hover);
-    border-bottom: 4px #404BBF solid;           
+    border-bottom: 4px #404BBF solid;
+    transition-duration: 250ms;
 }
-
+.curent-link::after{
+    display: block;
+    content: "";
+    color: var(--color-hover);
+    border-bottom: 4px #404BBF solid;
+    height: 4px;
+    width: 100%;
+    padding-top: 17px;
+    position:absolute;
+    left: 50%;
+    transition: width .2s ease-in-out;
+    transform: translateX(-50%);
+}
 .list-link {
    color: var(--color-navy-blue);
    font-weight: 500;
@@ -138,6 +155,8 @@ img{
 
 .address-contact>.link:hover, .address-contact>.link:focus{
     color: var(--color-hover);
+    transition-duration: 250ms;
+
 }
 
 .address-list{
@@ -193,6 +212,8 @@ img{
 .button-order:hover, .button-order:focus{
     background-color: var(--color-hover);
     cursor: pointer;
+    transition-duration: 250ms;
+
 }
 
 /* ________________Tech_____________________ */
@@ -333,6 +354,8 @@ section.what-are-we-doing {
 
 .team-soc-item:is(:hover, :focus){
     background-color: #404BBF;
+    transition-duration: 250ms;
+
 }
 
 .team-soc-link {
@@ -443,7 +466,7 @@ gap: 16px;
 
 .footer-soc-link:is(:hover, :focus){
     background-color: #31D0AA;
-
+    transition-duration: 250ms;
 }
 
 .footer-svg {
@@ -486,14 +509,67 @@ gap: 16px;
 .customers-link:hover,
 .customers-link:focus {
     border: 1px solid #404BBF;
+    transition-duration: 250ms;
 }
 
 .customers-link:hover,
 .customers-link:focus > .customers-svg{
     fill:#404BBF;
+    transition-duration: 250ms;
 }
 
+/* ___________MODAL____________ */
 
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(46, 47, 66, 0.4);;
+}
+
+.backdrop.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.modal-block {
+    min-width: 408px;
+    min-height: 576px;
+    background-color: #FCFCFC;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.button-modal-close{
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background-color: #E7E9FC;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    right: 24px;
+top: 24px;
+}
+
+.button-modal-close:is(:hover, :focus){
+    cursor: pointer;
+    transition-duration: 250ms;
+}
+
+.modal-svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.data-modal-close {
+
+}
 
 
 
@@ -519,6 +595,7 @@ gap: 16px;
     border: 1px solid #404BBF;
     border-radius: 4px;
     box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
+    transition-duration: 250ms;
 }
 
 .list-img-portfolio{
@@ -530,11 +607,44 @@ gap: 16px;
     width: 360px;
     margin-right: 24px;
     margin-bottom: 48px;
+
 }
 
-.img-portfolio{
+.overlay-top-block{
+    position: relative;
+    overflow: hidden;
+    display: block;
     width: 360px;
     height: 300px;
+}
+
+.overlay-top-block:hover .overlay-block {
+    transform: translatey(0);
+  }
+  
+.overlay-block{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #3f51b5;
+    transform: translatey(101%);
+    transition: transform 250ms ease;
+    padding: 40px 32px;
+}
+  
+.overlay-block > p {
+    color: #fff;
+    padding: 10px;
+    margin: 0;
+    font-size: 18px;
+}
+  
+
+
+.img-portfolio{
+
 }
 
 .item-img-portfolio:nth-child(3n){
@@ -565,6 +675,7 @@ gap: 16px;
     color: #ffffff;
     background-color: var(--color-hover);
     cursor: pointer;
+    transition-duration: 250ms;
 }
 
 .portfolio-text{
@@ -574,6 +685,7 @@ gap: 16px;
 
 .item-img-portfolio:is(:hover, :focus){
     box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
+    transition-duration: 250ms;
 }
 
 .title-under-img{
